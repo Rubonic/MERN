@@ -1,12 +1,13 @@
+
 .App {
-  text-align: center;
-}
-
-.box-list {
+  width: 100%;
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
 }
 
-.box-card {
-  border: 1px solid black;
+.Boxes {
+  display: flex;
+  gap: 10px;
 }
