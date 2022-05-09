@@ -50,10 +50,10 @@ const TodoList = () => {
             <h1 className='p-2'>ToDo List</h1>
             <form onSubmit={ createTodo } className='d-flex flex-column form-group' style={{width: 400, margin: '0 auto'}} >
                 <div>
-                    <label htmlFor="todoItem">ToDo: </label>
+                    <label htmlFor="todoItem">Task: </label>
                     <input className='form-control m-2' type="text" name="todoItem" onChange={ handleChange } value={formInfo.todoItem}/>
                 </div>
-                <input className='btn btn-success' style={{width: 100, margin: '0 auto'}} type="submit" />
+                <input className='btn btn-success' style={{width: 100, margin: '0 auto'}} type="Add" />
             </form>
             <hr />
             {
