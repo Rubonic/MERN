@@ -33,39 +33,36 @@ const expected3 = [];
  *    sorted and contains only the shared values between the two arrays
  *    deduped.
  */
- function orderedIntersection(sortedA, sortedB) {
+function orderedIntersection(sortedA, sortedB) {
 
     let newNums = [];
     let i = 0;
     let j = 0;
     //as long as i is within the bounds of its array and j is within the bounds of its array, enter the loop
-
-    while (i < sortedA.length && j < sortedB.length){
+    while (i < sortedA.length && j < sortedB.length) {
         // if the two values are equal
-        if (sortedA[i] == sortedB[j]){
+        if (sortedA[i] == sortedB[j]) {
             //push to the new nums array only IF the last value in newNums array is not equal to the current matching value 
             //if the newNums does not include the current value, then push the value to newNums
-            if (!newNums.includes(sortedA[i])){
+            if (!newNums.includes(sortedA[i])) {
                 newNums.push(sortedA[i]);
             }
-            i ++;
-            j ++;
+            i++;
+            j++;
         }
-
-        else if (sortedA[i] < sortedB[j]){
-            i ++;
+        else if (sortedA[i] < sortedB[j]) {
+            i++;
         }
-
-        else if (sortedB[j] < sortedA[i]){
-            j ++;
+        else if (sortedB[j] < sortedA[i]) {
+            j++;
         }
     }
     return newNums;
 
-
+    
 }
-console.log(orderedIntersection(numsA1,numsB1));
-console.log(orderedIntersection(numsA2,numsB2));
-console.log(orderedIntersection(numsA3,numsB3));
+console.log(orderedIntersection(numsA1, numsB1));
+console.log(orderedIntersection(numsA2, numsB2));
+console.log(orderedIntersection(numsA3, numsB3));
 
 /*****************************************************************************/
