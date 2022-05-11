@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router'
 
-const Colors = () => {
+const HelloColors = () => {
     const { word } = useParams();
     const { color1 } = useParams();
     const { color2 } = useParams();
@@ -11,4 +11,4 @@ const Colors = () => {
     )
 }
 
-export default Colors;
+export default HelloColors;
