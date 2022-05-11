@@ -1,9 +1,10 @@
+
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import Home from './components/Home';
 import Hello from './components/Hello';
-import HelloColors from './components/HelloColors';
+import Colors from './components/Colors';
 
 function App() {
   return (
@@ -12,14 +13,14 @@ function App() {
         <Switch>
           {/* //home path */}
           <Route exact path="/home">
-            <Home />
+            <Home></Home>
           </Route>
           {/* //hello & number path */}
           <Route exact path="/:hello">
-            <Hello />
+            <Hello></Hello>
           </Route>
           <Route exact path="/:word/:color1/:color2">
-            <HelloColors />
+            <Colors></Colors>
           </Route>
         </Switch>
       </BrowserRouter>
