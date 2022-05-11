@@ -1,2 +1,2 @@
 # MERN 
-Following through coding dojo MERN full stack
+Following through Coding Dojo Bootcamp MERN full stack
