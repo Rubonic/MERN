@@ -1,11 +1,11 @@
 // ROUTE IS CONNECTED TO THE CONTROLLER
-const QuoteController = require("../controllers/quote.controller"); 
+const JOKEController = require("../controllers/JOKE.controller");
 
-module.exports = (app)=>{
-    app.get("/api/hello", QuoteController.sayHello);
-    app.get("/api/quotes", QuoteController.findAllQuotes); // FIND ALL QUOTES
-    app.post("/api/quotes", QuoteController.createQuote); // CREATE A QUOTE
-    app.get("/api/quotes/:id", QuoteController.findOneQuote);// FIND ONE QUOTE
-    app.put("/api/quotes/:id", QuoteController.updateQuote);// UPDATE A QUOTE
-    app.delete("/api/quotes/:id", QuoteController.deleteQuote);// DELETE A QUOTE
-}
+module.exports = (app) => {
+  app.get("/api/hello", JOKEController.sayHello);
+  app.get("/api/JOKEs", JOKEController.findAllJOKEs); // FIND ALL JOKES
+  app.post("/api/JOKEs", JOKEController.createJOKE); // CREATE A JOKE
+  app.get("/api/JOKEs/:id", JOKEController.findOneJOKE); // FIND ONE JOKE
+  app.put("/api/JOKEs/:id", JOKEController.updateJOKE); // UPDATE A JOKE
+  app.delete("/api/JOKEs/:id", JOKEController.deleteJOKE); // DELETE A JOKE
+};
