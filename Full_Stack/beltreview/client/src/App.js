@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import AllNinjas from './components/AllNinjas';
 import NewNinjaForm from './components/NewNinjaForm';
+import OneNinja from './components/OneNinja';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           <NewNinjaForm></NewNinjaForm>
           <hr />
           <AllNinjas></AllNinjas>
+        </Route>
+        <Route exact path="/ninjas/:_id">
+          <OneNinja></OneNinja>
         </Route>
       </Switch>
       </div>

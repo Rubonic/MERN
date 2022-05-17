@@ -9,6 +9,9 @@ const NewNinjaForm = () => {
     let [gradDate, setGradDate] = useState("");
     let [isVeteran, setIsVeteran] = useState(false);
 
+    // state variable to store validation errors inside of
+    let [errors, setErrors] = useState({})
+
 
     // SUBMIT HANDLER
     const addNinja = (e)=>{
@@ -21,11 +24,18 @@ const NewNinjaForm = () => {
             .then(res=>{
                 console.log("response after posting form", res)
 
-                // CLEAR OUT THE STATE VARIABLES TO CLEAR OUT THE FORM
-                setName("");
-                setNumProjects("");
-                setGradDate("");
-                setIsVeteran(false);
+                if(res.data.error){
+                    // this means there are validation errors we need to save
+                    setErrors(res.data.error.errors);
+                }
+                else{
+                    // CLEAR OUT THE STATE VARIABLES TO CLEAR OUT THE FORM
+                    setName("");
+                    setNumProjects("");
+                    setGradDate("");
+                    setIsVeteran(false);
+
+                }
 
             })
             .catch(err=>console.log("errrrrrr", err))
@@ -37,14 +47,17 @@ const NewNinjaForm = () => {
                 <div className="form-group">
                     <label htmlFor="">Name:</label>
                     <input type="text" onChange={(e)=>setName(e.target.value)} className="form-control" value={name} />
+                    <p className="text-danger">{errors.name?.message}</p>
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Number of Projects:</label>
                     <input type="number" onChange={(e)=>setNumProjects(e.target.value)} className="form-control" value={numProjects} />
+                    <p className="text-danger">{errors.numProjects?.message}</p>
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Graduation Date:</label>
                     <input type="date" onChange={(e)=>setGradDate(e.target.value)} className="form-control" value={gradDate} />
+                    <p className="text-danger">{errors.gradDate?.message}</p>
                 </div>
                 <div className="form-group">
                     <label htmlFor="">Check if you are a Veteran:</label>
