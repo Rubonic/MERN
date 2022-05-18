@@ -20,12 +20,13 @@ function App() {
     <BrowserRouter>
       <div className="App container">
       <h1>Product Manager</h1>
-      <Link to ="/new">Add A New Product</Link>
       <Switch>
         <Route exact path="/">
+          <Link to ="/new">Add A New Product</Link>
           <AllProducts newProductToggle= {newProductToggle}></AllProducts>
         </Route>
         <Route exact path="/new">
+          <Link to ="/">Home</Link>
           <NewProductForm newProductToggle= {newProductToggle} setNewProductToggle= {setNewProductToggle}></NewProductForm>
         </Route>
         <Route exact path="/products/:_id">
