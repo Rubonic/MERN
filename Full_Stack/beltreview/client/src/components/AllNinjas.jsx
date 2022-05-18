@@ -32,6 +32,7 @@ const AllNinjas = () => {
                             <h6 className="card-subtitle mb-2 text-muted">Number of Projects: {ninjaObj.numProjects}</h6>
                             <p className="card-text">Graduation Date: {ninjaObj.gradDate}</p>
                             <p className='card-text'>Veteran Status: {ninjaObj.isVeteran? "Veteran": "Non-Veteran"}</p>
+                            <p><Link to={`/edit/${ninjaObj._id}`} className="btn btn-info">Edit {ninjaObj.name}</Link></p>
                             </div>
                         </div>
                     )

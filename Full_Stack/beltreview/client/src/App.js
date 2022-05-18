@@ -9,6 +9,7 @@ import {
 import AllNinjas from './components/AllNinjas';
 import NewNinjaForm from './components/NewNinjaForm';
 import OneNinja from './components/OneNinja';
+import EditNinjaForm from './components/EditNinjaForm';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route exact path="/ninjas/:_id">
           <OneNinja></OneNinja>
+        </Route>
+        <Route exact path="/edit/:_id">
+          <EditNinjaForm></EditNinjaForm>
         </Route>
       </Switch>
       </div>

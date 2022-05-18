@@ -43,6 +43,7 @@ const NewNinjaForm = () => {
 
     return (
         <div>
+            <h3>Create Ninja</h3>
             <form onSubmit={addNinja}>
                 <div className="form-group">
                     <label htmlFor="">Name:</label>
