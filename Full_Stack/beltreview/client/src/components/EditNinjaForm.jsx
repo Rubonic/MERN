@@ -22,10 +22,10 @@ const EditNinjaForm = () => {
 
     const changeHandler = (e)=>{ 
 
-        if(e.target.name === "checkbox"){
+        if(e.target.name === "isVeteran"){ 
             setNinjaInfo({
                 ...ninjaInfo,
-                [e.target.name]: e.target.checked
+                [e.target.name]: e.target.checked // FOR THE CHECKBOX INPUT TYPE
             })
         }else{
             setNinjaInfo({

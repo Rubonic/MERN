@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
 import {
   BrowserRouter,
   Switch,
@@ -12,15 +13,20 @@ import OneNinja from './components/OneNinja';
 import EditNinjaForm from './components/EditNinjaForm';
 
 function App() {
+
+  const [newNinjaToggle, setNewNinjaToggle] = useState(false);
+
   return (
     <BrowserRouter>
       <div className="App container">
       <h1>Wall of Ninjas</h1>
+      <Link to ="/new">Add New Ninja</Link>
       <Switch>
         <Route exact path="/">
-          <NewNinjaForm></NewNinjaForm>
-          <hr />
-          <AllNinjas></AllNinjas>
+          <AllNinjas newNinjaToggle= {newNinjaToggle}></AllNinjas>
+        </Route>
+        <Route exact path="/new">
+          <NewNinjaForm newNinjaToggle= {newNinjaToggle} setNewNinjaToggle= {setNewNinjaToggle}></NewNinjaForm>
         </Route>
         <Route exact path="/ninjas/:_id">
           <OneNinja></OneNinja>

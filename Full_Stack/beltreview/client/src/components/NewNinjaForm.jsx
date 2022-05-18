@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {useHistory} from "react-router-dom";
 
 
-const NewNinjaForm = () => {
+const NewNinjaForm = (props) => {
 
     let [name, setName] = useState("");
     let [numProjects, setNumProjects] = useState("");
@@ -11,6 +12,8 @@ const NewNinjaForm = () => {
 
     // state variable to store validation errors inside of
     let [errors, setErrors] = useState({})
+
+    const history = useHistory();
 
 
     // SUBMIT HANDLER
@@ -34,6 +37,10 @@ const NewNinjaForm = () => {
                     setNumProjects("");
                     setGradDate("");
                     setIsVeteran(false);
+
+                    props.setNewNinjaToggle(!props.newNinjaToggle);
+
+                    history.push("/");
 
                 }
 

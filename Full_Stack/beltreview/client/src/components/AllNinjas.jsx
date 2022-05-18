@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
-const AllNinjas = () => {
+
+const AllNinjas = (props) => {
 
     const [allNinjas, setAllNinjas] = useState([])
+
+    const[deleteToggle, setDeleteToggle] = useState(false);
 
     useEffect(()=>{
         axios.get("http://localhost:8000/api/ninjas")
@@ -13,9 +16,19 @@ const AllNinjas = () => {
             setAllNinjas(res.data.results);
         })
         .catch(err=>{
-            console.log("errrrrr", err)
+            console.log("err", err)
         })
-    },[])
+    },[deleteToggle, props.newNinjaToggle])
+
+    const deleteNinja = (id)=>{
+        console.log("deleting ninja with this id ->", id);
+        axios.delete(`http://localhost:8000/api/ninjas/${id}`)
+            .then(res=>{
+                console.log("res after deleting!", res)
+                setDeleteToggle(!deleteToggle);
+            })
+            .catch(err=> console.log(err))
+    }
     
 
 
@@ -33,6 +46,7 @@ const AllNinjas = () => {
                             <p className="card-text">Graduation Date: {ninjaObj.gradDate}</p>
                             <p className='card-text'>Veteran Status: {ninjaObj.isVeteran? "Veteran": "Non-Veteran"}</p>
                             <p><Link to={`/edit/${ninjaObj._id}`} className="btn btn-info">Edit {ninjaObj.name}</Link></p>
+                            <button onClick={(e)=>{deleteNinja(ninjaObj._id)}} className="btn btn-danger">Delete {ninjaObj.name}</button>
                             </div>
                         </div>
                     )
