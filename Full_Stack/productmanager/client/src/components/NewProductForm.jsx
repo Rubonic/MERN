@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import {useHistory} from "react-router-dom";
 
 
-const NewProductForm = () => {
+const NewProductForm = (props) => {
 
     let [title, setTitle] = useState("");
     let [price, setPrice] = useState("");
@@ -11,6 +12,8 @@ const NewProductForm = () => {
 
     // state variable to store validation errors inside of
     let [errors, setErrors] = useState({})
+
+    const history = useHistory();
 
 
     // SUBMIT HANDLER
@@ -33,6 +36,10 @@ const NewProductForm = () => {
                     setTitle("");
                     setPrice("");
                     setDescription("");
+
+                    props.setNewProductToggle(!props.newProductToggle);
+
+                    history.push("/");
 
                 }
 
