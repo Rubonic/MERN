@@ -48,18 +48,16 @@ const expected1 = [
  * @returns {Object[]} An array of objects.
  */
 function flattenObjectOfArrays() {
-    const result = [];
-
-    for (value in object){
-        for (let obj of object[value]){
-            let tempObj = {};
-            tempObj["id"] = obj["id"];
-            tempObj["type"] = obj["type"];
-            result.push(tempObj);
-        }
+    const functionalFlattenObjectOfArrays = (o) => {
+        // Get an array of the object's values. Since they are arrays it will be 2d.
+        return Object.values(o)
+            // Reduce the nested arrays into a single array.
+            .reduce((mergedArr, arrOfObjects) => mergedArr.concat(arrOfObjects), [])
+            // Transform the data to the structure we want (not all keys are wanted).
+            .map(({ id, type }) => ({
+                id,
+                type,
+            }));
     }
-
-    return result;
-}
 
 /*****************************************************************************/
