@@ -37,17 +37,29 @@ const expected5 = false;
  * @returns {boolean}
  */
 function canBuildS1FromS2(haystack,needle) {
-    let i = 0;
-    let j = 0;
-    while (i < haystack.length && j < needle.length) {
-        if (haystack[i].toLowerCase() === needle[j].toLowerCase()) {
-            i++;
-            j++;
+    if (needle.length < haystack.length){
+        return false;
+    }
+
+    let needleHash = {};
+
+    for (letter of needle){
+        if(!needleHash[letter.toLowerCase()]){
+            needleHash[letter.toLowerCase()] = 1;
         } else {
-            i++;
+            needleHash[letter.toLowerCase()]++;
         }
     }
-    return j === needle.length;
+
+    for (letter of haystack){
+        if(needleHash[letter.toLowerCase()] && needleHash[letter.toLowerCase()] > 0){
+            needleHash[letter.toLowerCase()]--;
+        } else {
+            return false;
+        }
+    }
+
+    return true;
 }
 console.log(canBuildS1FromS2(strA1,strB1));
 console.log(canBuildS1FromS2(strA2,strB2));
